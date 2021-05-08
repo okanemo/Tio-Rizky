@@ -1,6 +1,6 @@
 # build environment
 FROM node:lts-alpine as build
-WORKDIR /
+WORKDIR /usr/www/client
 ENV PATH /node_modules/.bin:$PATH
 COPY package.json /package.json
 RUN npm install --silent
@@ -10,7 +10,7 @@ RUN npm run build
 
 # production environment
 FROM nginx:1.16.0-alpine
-COPY --from=build /dist /usr/share/nginx/html
+COPY --from=build /usr/www/client/dist /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY /nginx.conf /etc/nginx/conf.d
 EXPOSE 80

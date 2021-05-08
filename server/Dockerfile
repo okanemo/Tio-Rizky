@@ -8,4 +8,4 @@ COPY package*.json ./
 
 RUN npm install
 
-CMD ["npm", "app.js"]
+CMD ["npm", "run", "dev"]
