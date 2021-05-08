@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  serverbe:
+    container_name: serverbe
+    build: ./server
+    ports:
+      - "3000:3000"
+  clientfe:
+    container_name: clientfe
+    build: ./client
+    ports:
+      - "80:80"
