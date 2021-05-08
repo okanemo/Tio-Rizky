@@ -1,13 +1,11 @@
-FROM node:14.4-alpine3.11
+FROM node:lts-alpine
 
 WORKDIR /usr/www/api
 
 ENV PORT=3000
 
-COPY . .
+COPY package*.json ./
 
-RUN npm install -g nodemon
+RUN npm install
 
-RUN npm install && npm clean --force
-
-CMD ["nodemon", "app.js"]
+CMD ["npm", "app.js"]

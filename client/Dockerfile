@@ -5,7 +5,7 @@ ENV PATH /node_modules/.bin:$PATH
 COPY package.json /package.json
 RUN npm install --silent
 RUN npm install @vue/cli@3.7.0 -g
-COPY . /app
+COPY . .
 RUN npm run build
 
 # production environment
