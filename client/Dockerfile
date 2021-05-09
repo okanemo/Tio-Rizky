@@ -2,10 +2,10 @@
 FROM node:lts-alpine as build
 WORKDIR /usr/www/client
 ENV PATH /node_modules/.bin:$PATH
-COPY package.json /package.json
+COPY package.json /usr/www/client/package.json
 RUN npm install --silent
 RUN npm install @vue/cli@3.7.0 -g
-COPY . .
+COPY . /usr/www/client
 RUN npm run build
 
 # production environment
