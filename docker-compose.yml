@@ -2,7 +2,6 @@ version: "3"
 
 services:
   serverbe:
-    command: npm run dev
     container_name: serverbe
     build: ./server
     ports:
